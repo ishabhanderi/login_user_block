@@ -38,7 +38,7 @@ def login_view(request):
                         email[0].expiredAt = timezone.now() + timezone.timedelta(minutes=3)
                         email[0].save()
                         return Response("Your account has been blocked for 3 minutes.")
-                    return Response("Invalid password!") 
+                    return Response("Invalid password!!") 
             else:
                 if email[0].user_count == 5:
                     if email[0].expiredAt > timezone.now():
@@ -47,8 +47,8 @@ def login_view(request):
                         email[0].block = True
                         email[0].user_count = 0
                         email[0].save()
-                        return Response("Please Login Again! Unblock User!")
-        return Response("Email verification failed!")
+                        return Response("Please Login Again! Unblock User!!")
+        return Response("Email verification failed!!")
 
 
 
